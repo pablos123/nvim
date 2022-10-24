@@ -1,6 +1,19 @@
-let path = stdpath('data') . '/plugged'
+let plug_file = '/opt/nvim/autoload/plug.vim'
+if empty(glob(plug_file))
+  silent execute '!curl -fLo ' . plug_file . ' --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
 
-call plug#begin(path)
+"
+" Run PlugInstall if there are missing plugins
+" autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
+"   \| PlugInstall --sync | source $MYVIMRC
+" \| endif
+"
+" I prefer doing this with Ansible:
+" nvim -es -u init.vim -i NONE -c 'PlugInstall' -c 'qa'
+"
+call plug#begin('/opt/nvim/plugged/')
 
 "---------------------
 " Dependencies

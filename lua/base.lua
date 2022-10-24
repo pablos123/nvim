@@ -5,6 +5,9 @@ if vim.fn.has('termguicolors') then
     opts.termguicolors = true
 end
 
+-- tired of different config for different users i'm the only one in my machines
+vim.g.nvim_system_wide = 1
+
 -- visuals
 opts.colorcolumn = { 80, 100, 120 }
 opts.signcolumn = "yes"
@@ -28,7 +31,7 @@ opts.wildmenu = true
 opts.hidden = true
 opts.timeoutlen = 850
 
--- disable netrw, I want to replace this with lf in a floating terminal
+-- disable netrw
 vim.g.loaded_netrw       = 1
 vim.g.loaded_netrwPlugin = 1
 
