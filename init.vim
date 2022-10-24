@@ -1,4 +1,4 @@
-let plug_file = '/opt/nvim/autoload/plug.vim'
+let plug_file = '/etc/xdg/nvim/autoload/plug.vim'
 if empty(glob(plug_file))
   silent execute '!curl -fLo ' . plug_file . ' --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
