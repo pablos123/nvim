@@ -7,7 +7,7 @@ require'lspconfig'.ansiblels.setup({
 })
 
 require'lspconfig'.perlnavigator.setup{
-    cmd = {'node', '/home/pab/repos/general/PerlNavigator/server/out/server.js', '--stdio'},
+    cmd = {'node', '/opt/nvim/repos/PerlNavigator/server/out/server.js', '--stdio'},
     settings = {
       perlnavigator = {
           perlPath = 'perl',
