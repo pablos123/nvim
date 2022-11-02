@@ -55,3 +55,7 @@ keymap("n", "<leader>l", "<c-w>l", opts)
 
 -- search for visually highlighted
 keymap("v", "//", "y/\\V<c-r>=escape(@\",'/\\')<cr><cr>", opts)
+
+-- lsp
+keymap("n", "<leader>fo", ":lua vim.lsp.buf.format({ bufnr = bufnr })<cr>", opts)
+keymap("n", "<leader>di", ":lua vim.diagnostic.setqflist()<cr>", opts)

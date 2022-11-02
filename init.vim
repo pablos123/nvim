@@ -1,4 +1,5 @@
-call plug#begin('/opt/nvim/plugged/')
+let path = stdpath('data') . '/plugged'
+call plug#begin(path)
 
 "---------------------
 " Dependencies
