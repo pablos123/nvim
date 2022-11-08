@@ -5,9 +5,6 @@ if vim.fn.has('termguicolors') then
     opts.termguicolors = true
 end
 
--- tired of different config for different users i'm the only one in my machines
-vim.g.nvim_system_wide = 1
-
 -- visuals
 opts.colorcolumn = { 80, 100, 120 }
 opts.signcolumn = "yes"
@@ -66,3 +63,26 @@ autocmd("FileType", {
     command = "setl tabstop=2 shiftwidth=2",
     group = file_types_au
 })
+
+-- diagnostics
+vim.diagnostic.config {
+    -- Disable underline, it's very annoying
+    underline = false,
+    -- Want to view the diagnostics with trouble
+    virtual_text = false,
+}
+
+autocmd("BufEnter", {
+    pattern = "*.yml",
+    command = "setl ft=yaml.ansible",
+    group = file_types_au,
+})
+
+local function set_diagnostic_signs()
+    vim.cmd("sign define DiagnosticSignError text= texthl=DiagnosticSignError linehl= numhl=")
+    vim.cmd("sign define DiagnosticSignWarn text= texthl=DiagnosticSignWarn linehl= numhl=")
+    vim.cmd("sign define DiagnosticSignInfo text= texthl=DiagnosticSignInfo linehl= numhl=")
+    vim.cmd("sign define DiagnosticSignHint text=ﯧ texthl=DiagnosticSignHint linehl= numhl=")
+end
+
+set_diagnostic_signs()

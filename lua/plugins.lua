@@ -33,3 +33,6 @@ require "plugins_conf/nvim_lsp"
 
 require "plugins_conf/null_ls"
 
+-- Diagnostics
+require "plugins_conf/trouble"
+

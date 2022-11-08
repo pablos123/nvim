@@ -43,6 +43,12 @@ Plug 'saadparwaiz1/cmp_luasnip'
 Plug 'jose-elias-alvarez/null-ls.nvim'
 
 "---------------------
+"Diagnostics
+"---------------------
+Plug 'folke/lsp-colors.nvim'
+Plug 'folke/trouble.nvim'
+
+"---------------------
 "File viewing
 "---------------------
 Plug 'luukvbaal/nnn.nvim'
