@@ -1,10 +1,4 @@
--- I'm executin ansible lint with null ls all non-ls diagnostic i prefer
--- doing it that way
-require'lspconfig'.ansiblels.setup({
-    ansibleLint = {
-      enabled = false,
-    },
-})
+require'lspconfig'.ansiblels.setup{}
 
 require'lspconfig'.perlnavigator.setup{
     cmd = {'node', '/opt/nvim/repos/PerlNavigator/server/out/server.js', '--stdio'},
@@ -12,6 +6,9 @@ require'lspconfig'.perlnavigator.setup{
       perlnavigator = {
           perlPath = 'perl',
           enableWarnings = true,
+          perlcriticEnabled = true,
+          perltidyProfile = '/home/pab/.config/nvim/others/.perltidyrc',
+          perlcriticProfile = '/home/pab/.config/nvim/others/.perlcriticrc',
           perlcriticEnabled = true,
       }
     }

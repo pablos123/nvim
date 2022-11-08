@@ -39,7 +39,7 @@ opts.hlsearch = false
 opts.ignorecase = true
 opts.smartcase = true
 
--- text dsplay
+-- text display
 opts.tabstop = 4
 opts.softtabstop = 4
 opts.shiftwidth = 4
@@ -64,6 +64,12 @@ autocmd("FileType", {
     group = file_types_au
 })
 
+autocmd("BufEnter", {
+    pattern = "*.yml",
+    command = "setl ft=yaml.ansible",
+    group = file_types_au,
+})
+
 -- diagnostics
 vim.diagnostic.config {
     -- Disable underline, it's very annoying
@@ -72,17 +78,11 @@ vim.diagnostic.config {
     virtual_text = false,
 }
 
-autocmd("BufEnter", {
-    pattern = "*.yml",
-    command = "setl ft=yaml.ansible",
-    group = file_types_au,
-})
-
 local function set_diagnostic_signs()
     vim.cmd("sign define DiagnosticSignError text= texthl=DiagnosticSignError linehl= numhl=")
     vim.cmd("sign define DiagnosticSignWarn text= texthl=DiagnosticSignWarn linehl= numhl=")
     vim.cmd("sign define DiagnosticSignInfo text= texthl=DiagnosticSignInfo linehl= numhl=")
-    vim.cmd("sign define DiagnosticSignHint text=ﯧ texthl=DiagnosticSignHint linehl= numhl=")
+    vim.cmd("sign define DiagnosticSignHint text= texthl=DiagnosticSignHint linehl= numhl=")
 end
 
 set_diagnostic_signs()
