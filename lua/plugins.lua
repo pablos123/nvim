@@ -34,21 +34,21 @@ use 'jose-elias-alvarez/null-ls.nvim'
 -----------------------
 use 'sainnhe/gruvbox-material'
 
---Better syntax highlight
+-- Better syntax highlight
 use { 'pearofducks/ansible-vim', run = './UltiSnips/generate.sh' }
-use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
+use { 'nvim-treesitter/nvim-treesitter' }
 
 use 'vim-airline/vim-airline'
 use 'tpope/vim-fugitive'
 
 -----------------------
---Diagnostics
+-- Diagnostics
 -----------------------
 use 'folke/lsp-colors.nvim'
 use 'folke/trouble.nvim'
 
 -----------------------
---File viewing
+-- File viewing
 -----------------------
 use 'luukvbaal/nnn.nvim'
 
