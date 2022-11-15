@@ -7,8 +7,8 @@ require'lspconfig'.perlnavigator.setup{
           perlPath = 'perl',
           enableWarnings = true,
           perlcriticEnabled = true,
-          perltidyProfile = '/home/pab/.config/nvim/others/.perltidyrc',
-          perlcriticProfile = '/home/pab/.config/nvim/others/.perlcriticrc',
+          perltidyProfile = '~/.config/nvim/others/.perltidyrc',
+          perlcriticProfile = '~/.config/nvim/others/.perlcriticrc',
           perlcriticEnabled = true,
       }
     }
