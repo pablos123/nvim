@@ -5,8 +5,8 @@ return require('packer').startup(function(use)
 -----------------------
 use {
   'nvim-telescope/telescope.nvim', branch = '0.1.x',
--- or                            , tag = '0.1.0',
-  requires = { {'nvim-lua/plenary.nvim'}, 
+   -- or                         , tag = '0.1.0',
+  requires = { {'nvim-lua/plenary.nvim'},
                {'kyazdani42/nvim-web-devicons'},
                --C compiled fzf for faster telescope searching
                { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
@@ -18,37 +18,41 @@ use {
 -----------------------
 use 'neovim/nvim-lspconfig'
 
-use 'hrsh7th/cmp-nvim-lsp'
-use 'hrsh7th/cmp-buffer'
-use 'hrsh7th/cmp-path'
-use 'hrsh7th/cmp-cmdline'
-use 'hrsh7th/nvim-cmp'
-
-use 'L3MON4D3/LuaSnip'
-use 'saadparwaiz1/cmp_luasnip'
-
 use 'jose-elias-alvarez/null-ls.nvim'
+
+use { 'hrsh7th/nvim-cmp',
+    requires = {
+        {'hrsh7th/cmp-nvim-lsp'},
+        {'hrsh7th/cmp-buffer'},
+        {'hrsh7th/cmp-path'},
+        {'hrsh7th/cmp-cmdline'},
+        {'L3MON4D3/LuaSnip'},
+        {'saadparwaiz1/cmp_luasnip'}
+    }
+}
 
 -----------------------
 -- Visuals
 -----------------------
 use 'sainnhe/gruvbox-material'
 
--- Better syntax highlight
+-- Syntax highlighting
 use { 'pearofducks/ansible-vim', run = './UltiSnips/generate.sh' }
 use { 'nvim-treesitter/nvim-treesitter' }
 
-use 'vim-airline/vim-airline'
+-----------------------
+-- Git
+-----------------------
 use 'tpope/vim-fugitive'
+use 'vim-airline/vim-airline'
 
 -----------------------
 -- Diagnostics
 -----------------------
-use 'folke/lsp-colors.nvim'
-use 'folke/trouble.nvim'
+use { 'folke/trouble.nvim', requires = { {'folke/lsp-colors.nvim'} } }
 
 -----------------------
--- File viewing
+-- File manager
 -----------------------
 use 'luukvbaal/nnn.nvim'
 
