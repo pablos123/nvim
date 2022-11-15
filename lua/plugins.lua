@@ -1,38 +1,60 @@
+return require('packer').startup(function(use)
+
+-----------------------
+-- Searching
+-----------------------
+use {
+  'nvim-telescope/telescope.nvim', branch = '0.1.x',
+-- or                            , tag = '0.1.0',
+  requires = { {'nvim-lua/plenary.nvim'}, 
+               {'kyazdani42/nvim-web-devicons'},
+               --C compiled fzf for faster telescope searching
+               { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+  }
+}
+
+-----------------------
+-- LSP and completions
+-----------------------
+use 'neovim/nvim-lspconfig'
+
+use 'hrsh7th/cmp-nvim-lsp'
+use 'hrsh7th/cmp-buffer'
+use 'hrsh7th/cmp-path'
+use 'hrsh7th/cmp-cmdline'
+use 'hrsh7th/nvim-cmp'
+
+use 'L3MON4D3/LuaSnip'
+use 'saadparwaiz1/cmp_luasnip'
+
+use 'jose-elias-alvarez/null-ls.nvim'
+
+-----------------------
 -- Visuals
-vim.cmd "colorscheme gruvbox-material"
+-----------------------
+use 'sainnhe/gruvbox-material'
 
-vim.opt.background = "dark"
-vim.g.gruvbox_material_background = "medium" -- default value: "medium"
+--Better syntax highlight
+use { 'pearofducks/ansible-vim', run = './UltiSnips/generate.sh' }
+use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
 
-require "plugins_conf/vim_airline"
+use 'vim-airline/vim-airline'
+use 'tpope/vim-fugitive'
 
-----------------
+-----------------------
+--Diagnostics
+-----------------------
+use 'folke/lsp-colors.nvim'
+use 'folke/trouble.nvim'
 
--- Commenting
-require('Comment').setup()
+-----------------------
+--File viewing
+-----------------------
+use 'luukvbaal/nnn.nvim'
 
--- File Manager
-require "plugins_conf/nnn_nvim"
+-----------------------
+-- Comments
+-----------------------
+use 'numToStr/Comment.nvim'
 
--- Gir managment
-require "plugins_conf/vim_fugitive"
-
--- Fuzzy finding
-require "plugins_conf/telescope"
-
--- Syntax Highlighting with playground
-require "plugins_conf/tree_sitter"
-
--- Language servers and completition setups
-
--- the order of these two plugins is important due to
--- doing particular setups in nvim_lsp, nvim_cmp is always
--- calling the server setup with all capabilities
-require "plugins_conf/nvim_cmp"
-require "plugins_conf/nvim_lsp"
-
-require "plugins_conf/null_ls"
-
--- Diagnostics
-require "plugins_conf/trouble"
-
+end)
