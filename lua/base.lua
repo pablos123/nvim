@@ -18,7 +18,7 @@ opts.sidescroll = 10
 -- handy
 opts.backup = false
 opts.swapfile = false
-opts.undodir = " ~/.nvim/undodir"
+opts.undodir = "~/.nvim/undodir"
 opts.undofile = true
 opts.updatetime = 400
 opts.mouse = "a"
