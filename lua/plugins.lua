@@ -1,6 +1,25 @@
 return require('packer').startup(function(use)
 
 -----------------------
+-- LSP and completions
+-----------------------
+
+use { 'hrsh7th/nvim-cmp',
+    requires = {
+        {'hrsh7th/cmp-nvim-lsp'},
+        {'hrsh7th/cmp-buffer'},
+        {'hrsh7th/cmp-path'},
+        {'hrsh7th/cmp-cmdline'},
+        {'L3MON4D3/LuaSnip'},
+        {'saadparwaiz1/cmp_luasnip'}
+    }
+}
+
+use 'neovim/nvim-lspconfig'
+
+use 'jose-elias-alvarez/null-ls.nvim'
+
+-----------------------
 -- Searching
 -----------------------
 use {
@@ -14,42 +33,19 @@ use {
 }
 
 -----------------------
--- LSP and completions
+-- Diagnostics
 -----------------------
-use 'neovim/nvim-lspconfig'
-
-use 'jose-elias-alvarez/null-ls.nvim'
-
-use { 'hrsh7th/nvim-cmp',
-    requires = {
-        {'hrsh7th/cmp-nvim-lsp'},
-        {'hrsh7th/cmp-buffer'},
-        {'hrsh7th/cmp-path'},
-        {'hrsh7th/cmp-cmdline'},
-        {'L3MON4D3/LuaSnip'},
-        {'saadparwaiz1/cmp_luasnip'}
-    }
-}
-
------------------------
--- Visuals
------------------------
-use 'sainnhe/gruvbox-material'
-
--- Syntax highlighting
-use { 'pearofducks/ansible-vim', run = './UltiSnips/generate.sh' }
-use { 'nvim-treesitter/nvim-treesitter' }
+use { 'folke/trouble.nvim', requires = { {'folke/lsp-colors.nvim'} } }
 
 -----------------------
 -- Git
 -----------------------
 use 'tpope/vim-fugitive'
-use 'vim-airline/vim-airline'
 
 -----------------------
--- Diagnostics
+-- Comments
 -----------------------
-use { 'folke/trouble.nvim', requires = { {'folke/lsp-colors.nvim'} } }
+use 'numToStr/Comment.nvim'
 
 -----------------------
 -- File manager
@@ -57,8 +53,21 @@ use { 'folke/trouble.nvim', requires = { {'folke/lsp-colors.nvim'} } }
 use 'luukvbaal/nnn.nvim'
 
 -----------------------
--- Comments
+-- Visuals
 -----------------------
-use 'numToStr/Comment.nvim'
+
+-- Theme
+use 'sainnhe/gruvbox-material'
+
+-- Status bar
+use 'vim-airline/vim-airline'
+
+-- Syntax highlighting
+use { 'pearofducks/ansible-vim', run = './UltiSnips/generate.sh' }
+use 'nvim-treesitter/nvim-treesitter'
+
+-- Code context
+use 'nvim-treesitter/nvim-treesitter-context'
+
 
 end)
