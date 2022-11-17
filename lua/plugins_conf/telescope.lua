@@ -63,9 +63,9 @@ keymap("n", "<leader>fh", "<cmd>lua require('telescope.builtin').help_tags()<cr>
 -- LSP mapping
 
 -- Definitions
-keymap("n", "<leader>d", "<cmd>lua require('telescope.builtin').lsp_definitions()<cr>", opts)
+keymap("n", "<leader>df", "<cmd>lua require('telescope.builtin').lsp_definitions()<cr>", opts)
 -- References
-keymap("n", "<leader>r", "<cmd>lua require('telescope.builtin').lsp_references()<cr>", opts)
+keymap("n", "<leader>re", "<cmd>lua require('telescope.builtin').lsp_references()<cr>", opts)
 
 -- Symbols in document
 keymap("n", "<leader>sd", "<cmd>lua require('telescope.builtin').lsp_document_symbols()<cr>", opts)
@@ -76,6 +76,3 @@ keymap("n", "<leader>sv", "<cmd>lua require('telescope.builtin').lsp_document_sy
 keymap("n", "<leader>sw", "<cmd>lua require('telescope.builtin').lsp_workspace_symbols()<cr>", opts)
 -- Functions in workspace
 keymap("n", "<leader>sf", "<cmd>lua require('telescope.builtin').lsp_workspace_symbols( { symbols = 'function' } )<cr>", opts)
-
--- Diagnostics, the bufnr = 0 is for showing diagnostics just in the current document
-keymap("n", "<leader>e", "<cmd>lua require('telescope.builtin').diagnostics( { bufnr = 0 } )<cr>", opts)
