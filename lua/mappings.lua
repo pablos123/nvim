@@ -10,6 +10,9 @@ vim.g.maplocalleader = " "
 keymap("n", "<f5>", ":set relativenumber!<cr>", opts)
 keymap("v", "<f5>", "<esc>:set relativenumber!<cr>v", opts)
 keymap("i", "<f5>", "<esc>:set relativenumber!<cr>a", opts)
+keymap("n", "<f2>", ":set nowrap!<cr>", opts)
+keymap("v", "<f2>", ":set nowrap!<cr>v", opts)
+keymap("i", "<f2>", ":set nowrap!<cr>a", opts)
 
 -- to hold 'tab' mode
 keymap("v", "<", "<gv", opts)

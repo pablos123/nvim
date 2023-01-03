@@ -14,6 +14,6 @@ require'lspconfig'.perlnavigator.setup{
     }
 }
 
-require'lspconfig'.pylsp.setup{}
+require'lspconfig'.pyright.setup{}
 
 require'lspconfig'.tsserver.setup{}

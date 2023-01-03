@@ -25,6 +25,7 @@ require "plugins_conf/trouble"
 -- Git
 -----------------------
 require "plugins_conf/vim_fugitive"
+require "plugins_conf/gitsigns"
 
 -----------------------
 -- Comments
@@ -44,10 +45,13 @@ require "plugins_conf/nnn_nvim"
 require "plugins_conf/gruvbox_material"
 
 -- Status bar
-require "plugins_conf/vim_airline"
+require "plugins_conf/lualine"
 
 -- Syntax Highlighting
 require "plugins_conf/tree_sitter"
 
 -- Code context
 require "plugins_conf/tree_sitter_context"
+
+-- Greeter
+require "plugins_conf/alpha_nvim"
